@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Climate Condition Analysis Dashboard</title>
+    <!-- Include stlite CSS styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.73.0/build/stlite.css"
+    />
+    <style>
+      /* Ensure full screen height and clean styling */
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container for Streamlit Mount -->
+    <div id="root"></div>
+
+    <!-- Include stlite JavaScript distribution -->
+    <script src="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.73.0/build/stlite.js"></script>
+    <script>
+      stlite.mount({
+        // Install required Python packages in the Pyodide WebAssembly sandbox
+        requirements: ["pandas", "numpy", "matplotlib", "seaborn", "plotly", "statsmodels", "scipy", "patsy"],
+        entrypoint: "dashboard.py",
+        files: {
+          // Mount project files from the repository relative to this index.html
+          "dashboard.py": {
+            url: "dashboard.py"
+          },
+          "climate_analysis.py": {
+            url: "climate_analysis.py"
+          },
+          "climate_data.csv": {
+            url: "climate_data.csv"
+          }
+        }
+      }, document.getElementById("root"));
+    </script>
+  </body>
+</html>

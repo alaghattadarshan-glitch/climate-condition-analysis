@@ -38,6 +38,7 @@ Climate_Condition_Analysis/
 ├── climate_data.csv          # Raw & cleaned dataset (1,000+ records)
 ├── climate_analysis.py       # Main execution Python script
 ├── dashboard.py              # Interactive Streamlit Web UI Dashboard
+├── index.html                # GitHub Pages static entrypoint (Streamlit in Wasm)
 ├── requirements.txt          # Python dependencies
 │
 ├── visualizations/           # Generated presentation-ready charts
@@ -101,6 +102,17 @@ This will start a local server and automatically open a web browser tab at `http
 * Remove columns dynamically from the active dataframe, updating all KPIs and charts in real-time.
 * Smooth timelines dynamically using a rolling average slider (5 to 90 days).
 * Browse advanced, fully interactive **Plotly charts** grouped under clean category tabs.
+
+#### Option C: Live Static Website (GitHub Pages)
+Your Streamlit dashboard has been configured to run in **WebAssembly (Wasm)** completely inside the visitor's browser. Once deployed, you can access the live website at:
+👉 **`https://alaghattadarshan-glitch.github.io/climate-condition-analysis/`**
+
+**How to Activate Deployment on GitHub:**
+1. Go to your repository settings page on GitHub.
+2. On the left sidebar, click **Pages** (under the "Code and automation" section).
+3. Under **Build and deployment -> Branch**, select `main` from the dropdown and leave the folder as `/ (root)`.
+4. Click **Save**.
+5. Wait 1–2 minutes; GitHub will build and host your page at the URL above!
 
 ---
 
